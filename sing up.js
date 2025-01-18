@@ -1,39 +1,45 @@
-// تحديد عناصر النموذج
-const form = document.querySelector('.signup-form');
-const nameInput = document.getElementById('name');
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
+  // تحديد عناصر النموذج
+  const form = document.querySelector('.signup-form');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const confirmPasswordInput = document.getElementById('confirm-password');
 
-// التعامل مع الحدث عند إرسال النموذج
-form.addEventListener('submit', (e) => {
-    e.preventDefault(); // منع الإرسال الافتراضي للنموذج
+  // التعامل مع الحدث عند إرسال النموذج
+  form.addEventListener('submit', (e) => {
+      e.preventDefault(); // منع الإرسال الافتراضي للنموذج
 
-    // جلب البيانات المدخلة
-    const userData = {
-        name: nameInput.value,
-        email: emailInput.value,
-        password: passwordInput.value,
-    };
+      // التحقق من تطابق كلمة المرور مع تأكيدها
+      if (passwordInput.value !== confirmPasswordInput.value) {
+          alert('كلمة المرور وتأكيدها غير متطابقين. يرجى التأكد.');
+          return; // إيقاف الإجراء إذا لم تكن الكلمتان متطابقتين
+      }
 
-    // الحصول على البيانات الحالية المخزنة في localStorage
-    let storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+      // جلب البيانات المدخلة
+      const userData = {
+          name: nameInput.value,
+          email: emailInput.value,
+          password: passwordInput.value,
+      };
 
-    // إضافة البيانات الجديدة
-    storedUsers.push(userData);
+      // الحصول على البيانات الحالية المخزنة في localStorage
+      let storedUsers = JSON.parse(localStorage.getItem('users')) || [];
 
-    // تخزين البيانات في localStorage
-    localStorage.setItem('users', JSON.stringify(storedUsers));
+      // إضافة البيانات الجديدة
+      storedUsers.push(userData);
 
-    // إعادة تعيين الحقول بعد الحفظ
-    form.reset();
+      // تخزين البيانات في localStorage
+      localStorage.setItem('users', JSON.stringify(storedUsers));
 
-    // رسالة تأكيد
-    // alert('تم إنشاء الحساب بنجاح!');
-    window.location.href = './home.html';
-});
+      // إعادة تعيين الحقول بعد الحفظ
+      form.reset();
 
-// استرجاع وعرض البيانات من localStorage (اختياري)
-document.addEventListener('DOMContentLoaded', () => {
-    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-    console.log('المستخدمون المخزنون:', storedUsers);
-});
+      // رسالة تأكيد
+      window.location.href = './home.html';
+  });
+
+  // استرجاع وعرض البيانات من localStorage (اختياري)
+  document.addEventListener('DOMContentLoaded', () => {
+      const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+      console.log('المستخدمون المخزنون:', storedUsers);
+  });
