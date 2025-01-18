@@ -83,13 +83,7 @@
     }
   }
   
-  
   .categories {
-    /* background: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 1) 16%,
-      rgba(252, 176, 69, 1) 100%
-    ); */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -103,10 +97,11 @@
     box-shadow: 0 2px 5px rgba(83, 44, 3, 0.361);
     text-align: center;
     padding: 1rem;
-    max-width: 400px;
-    flex: 1;
+    width: 300px; /* تثبيت العرض لجعل جميع العناصر بنفس الحجم */
+    height: 350px; /* تثبيت الارتفاع لجعل جميع العناصر بنفس الحجم */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثير السلاسة */
   }
+  
   .category:hover {
     transform: translateY(-10px); /* رفع العنصر لأعلى */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* تكبير الظل */
@@ -114,8 +109,8 @@
   }
   
   .category img {
-    width: 75%;
-    height: 150px;
+    width: 100%; /* ملء العنصر بالكامل */
+    height: 200px; /* تثبيت ارتفاع الصور */
     object-fit: cover;
     border-radius: 8px;
   }
@@ -124,20 +119,24 @@
     margin-top: 1rem;
     color: black;
   }
-  @media (max-width: 768px) {
-    .banner-content h1 {
-      font-size: 1.5rem;
-    }
   
+  @media (max-width: 768px) {
     .categories {
-      flex-direction: column;
-      align-items: center;
+      flex-direction: column; /* جعل العناصر عمودية */
+      align-items: center; /* محاذاة العناصر في المنتصف */
+      gap: 1.5rem; /* زيادة المسافات قليلاً بين العناصر */
     }
   
     .category {
-      max-width: 100%;
+      width: 90%; /* اجعل العرض يناسب الهاتف المحمول */
+      height: auto; /* السماح بمرونة الارتفاع */
+    }
+  
+    .category img {
+      height: 180px; /* تصغير ارتفاع الصور قليلاً على الشاشات الصغيرة */
     }
   }
+  
   /* .category {
     max-width: 90%;
   } */
