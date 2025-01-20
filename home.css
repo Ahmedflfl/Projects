@@ -104,7 +104,7 @@
   
   .category:hover {
     transform: translateY(-10px); /* رفع العنصر لأعلى */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* تكبير الظل */
+    box-shadow: 0 8px 15px rgba(238, 183, 4, 0.618); /* تكبير الظل */
     cursor: pointer; /* تغيير المؤشر */
   }
   
@@ -122,20 +122,23 @@
   
   @media (max-width: 768px) {
     .categories {
-      flex-direction: column; /* جعل العناصر عمودية */
-      align-items: center; /* محاذاة العناصر في المنتصف */
-      gap: 1.5rem; /* زيادة المسافات قليلاً بين العناصر */
+      display: flex; /* تفعيل الفلكس بوكس */
+      flex-wrap: wrap; /* السماح بالتفاف العناصر */
+      justify-content: center; /* محاذاة العناصر في المنتصف */
+      gap: 1.5rem; /* المسافات بين العناصر */
     }
   
     .category {
-      width: 90%; /* اجعل العرض يناسب الهاتف المحمول */
+      width: 45%; /* عرض العنصر ليأخذ 45% من العرض */
       height: auto; /* السماح بمرونة الارتفاع */
     }
   
     .category img {
-      height: 180px; /* تصغير ارتفاع الصور قليلاً على الشاشات الصغيرة */
+      width: 100%; /* اجعل الصور تتوافق مع عرض العنصر */
+      height: auto; /* الحفاظ على نسبة الأبعاد */
     }
   }
+  
   
   /* .category {
     max-width: 90%;
