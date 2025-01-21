@@ -145,17 +145,17 @@
   }
   
   .btn.details:hover {
-    background-color: #0056b3; /* أزرق داكن عند التمرير */
+    background-color: #007bff; /* أزرق داكن عند التمرير */
   }
   
   /* زر إضافة إلى السلة */
   .btn.add-to-cart {
-    background-color: #28a745; /* لون أخضر */
+    background-color: #007bff; /* لون أخضر */
     color: #fff;
   }
   
   .btn.add-to-cart:hover {
-    background-color: #1e7e34; /* أخضر داكن عند التمرير */
+    background-color: #007bff; /* أخضر داكن عند التمرير */
   }
     
 /* استعلامات الوسائط للهواتف */
